@@ -12,6 +12,8 @@ long flagCount = EEPROM.read(0);
 long onCount = EEPROM.read(1);
 long cycleCount = 0;
 
+MIDI_CREATE_DEFAULT_INSTANCE();
+
 void setup() {
   onCount++;
   numberLDRs = sizeof(LDRs);
@@ -33,6 +35,7 @@ void loop() {
     if (analogRead(LDRs[i]) < Low[i] - boundary)
     {
       Serial.print(i);
+      MIDI.sendNoteOn(notes[i], 127, 1);
       tone(9, notes[i]);
       lastPlay[i] = 1;
       delay(100);
