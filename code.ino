@@ -98,5 +98,6 @@ void Update(long count, long flag, long on)
   if (flag / on < flagUnique)
   {
     boundary++;
+    Serial.println("************BOUNDARY CHANGED**************");
   }
 }
