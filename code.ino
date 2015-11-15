@@ -22,7 +22,8 @@ void setup() {
     lastPlay[i] = 0;
   }
   Callibrate();
-  Serial.begin(9600);
+  MIDI.begin();
+  Serial.begin(115200);
   tone(9, 700);
   delay(1000);
   noTone(9);
