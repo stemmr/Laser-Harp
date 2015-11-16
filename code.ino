@@ -45,6 +45,7 @@ void loop() {
     {
       Serial.print("_");
       lastPlay[i] = 0;
+      MIDI.sendNoteOff(notes[i]), 0, 1);
     }
   }
   noTone(9);
